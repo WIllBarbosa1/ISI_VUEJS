@@ -3,7 +3,7 @@
     <h1>Task List</h1>
     <div class="form-container">
       <input
-        class="form-container__textarea"
+        class="form-container__input-text"
         v-model="taskText"
         type="text"
         placeholder="Sua task..."
@@ -16,11 +16,11 @@
         Nova Task
       </button>
     </div>
-    <div class="list-container">
-      <div v-if="taskList.length > 0" class="list-container__wrapper">
+    <div class="list-tasks__container">
+      <div v-if="taskList.length > 0" class="list-tasks__wrapper">
         <ListItem
           v-for="(task, index) in taskList"
-          :key="`tasnk-${index}`"
+          :key="`task-${index}`"
           :task="task"
           @OnRemove="handleRemove"
         />
@@ -114,19 +114,19 @@ export default {
   background-color: #fdfffc;
 }
 
-.form-container__textarea {
+.form-container__input-text {
   padding: 5px 15px;
   font-size: 1rem;
   outline: none !important;
   border: 1px solid;
 }
 
-.form-container__textarea:focus {
+.form-container__input-text:focus {
   border-color: #42b983;
   border: 1px dashed #42b983;
 }
 
-.list-container {
+.list-tasks__container {
   gap: 10px;
   display: flex;
   align-items: center;
@@ -136,7 +136,7 @@ export default {
   margin-top: 20px;
 }
 
-.list-container__wrapper {
+.list-tasks__wrapper {
   gap: 10px;
   width: 100%;
   display: flex;
